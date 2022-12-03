@@ -1,5 +1,5 @@
 #menu {
-    z-index: 150;
+    z-index: 100;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -17,7 +17,7 @@
             div {
                 transition: .7s;
 
-                background: $gradient;
+                background: $color_blue;
                 width: 30px;
                 height: 3px;
                 border-radius: 3px;
@@ -32,7 +32,7 @@
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
 
-            box-shadow: 0px 0px 5px $color_grey2;
+            box-shadow: 0px 0px 5px #DDDDDD;
 
             position: absolute;
             top: 0px;
@@ -64,16 +64,19 @@
 
                 h1 {
                     font-family: $font1;
-                    background: $gradient;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    color: $color_dark_blue;
+
 
                     font-size: 50px;
-                    font-weight: 700;
+                    font-weight: 300;
                     text-align: left;
 
-                    transform: rotate(3deg);
                     margin: 0;
+
+                    span {
+                        font-weight: 700;
+
+                    }
                 }
 
                 p {
@@ -81,25 +84,18 @@
                     font-size: 12px;
                     font-weight: 200;
                     text-align: right;
-                    transform: rotate(-3deg);
                     margin: 0;
                     color: $color_grey1;
 
                 }
 
-                span {
-                    background: $gradient;
-                    width: 50px;
-                    height: 5px;
-                    border-radius: 5px;
-                    margin: 0;
-                }
+
             }
 
             .link-container-column {
-                @include flex(flex-start);
+                @include flex(center);
                 flex-direction: column;
-                margin: 20px 0 0 0;
+                margin: 150px 0 0 0;
 
                 .stroke-menu {
                     height: .5px;
@@ -125,7 +121,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: $color_beige;
+    background-color: $color_blue;
 
     background-image: url(src/assets/img/user.png);
     background-repeat: no-repeat;
@@ -168,7 +164,7 @@
             div {
                 transition: .7s;
 
-                background: $color_grey1  !important;
+                background: $color_grey1 !important;
                 margin: -2.5px 0 0 0 !important;
 
                 &:first-child {
@@ -191,5 +187,31 @@
             left: 0 !important;
             transition: .7s;
         }
+    }
+}
+
+
+#wishlist-icon {
+    z-index: 100;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: $color_grey1;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+    box-shadow: 0 0 10px #b0b0b0;
+    @include flex(center);
+    align-items: center;
+
+    div {
+        width: 50%;
+        height: 50%;
+
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
