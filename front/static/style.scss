@@ -1,3 +1,316 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+//Les differentes variables couleurs
+$color_fond : #FBFBFB;
+$color_white : #FFFFFF;
+$color_grey1 : #202020;
+$color_grey2 : #DDDDDD;
+$color_blue : #1E3D59;
+$color_beige : #F5F0E5;
+$color_green : #E3F1D1;
+$gradient : linear-gradient(90deg, #FF6E40 0%, #FFB16F 33%, #FFE86F 66%, #FFC13B 100%);
+
+
+$valid_color: #30ba4e;
+$medium_color: #f8b645;
+$no_valid_color: #EA5B5B;
+
+//Les differentes variables font
+$font1: 'Montserrat', sans-serif;
+
+p,
+h1,
+h2,
+h3,
+span {
+    &::selection {
+        background-color: $color_grey1;
+        color: $color_white;
+    }
+}
+
+//Mixin Section
+@mixin section($x: 100px){
+    margin: 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-top: $x;
+    box-sizing: border-box;
+}
+
+//Mixin Conteneur
+@mixin section_title {
+    font-family: $font1;
+    color: $color_grey1;
+
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+
+    margin: 0 20px;
+
+}
+
+//Mixin des bouttons bleu
+@mixin blue_button {
+    padding: 15px 25px;
+    background-color: $color_blue;
+    border-radius: 5px;
+    border: none;
+
+    font-family: $font1;
+    font-size: 15px;
+    font-weight: 600;
+    color: $color_white;
+    margin: 10px 0;
+}
+
+// Si aucune valeur n'est précisée alors $justify vaut space-around
+@mixin flex($justify: space-around) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+}
+
+//Row Link mixin
+@mixin row_link {
+    @include flex(flex-start);
+    align-items: center;
+    margin: 15px 0;
+
+    div {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        margin: 0 15px 0 0;
+    }
+
+    p {
+        font-family: $font1;
+        font-size: 12px;
+        font-weight: 200;
+        text-align: left;
+        margin: 0;
+    }
+}
+
+//Mixin input
+@mixin form_input {
+    width: 280px;
+    height: 50px;
+
+    margin: 7px 0;
+
+    border: 1px solid $color_grey1;
+    border-radius: 5px;
+
+    position: relative;
+
+    input {
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+
+        font-family: $font1;
+        font-size: 15px;
+        font-weight: 600;
+        color: $color_grey1;
+
+        padding: 10px 0 0 25px;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus~p {
+            top: 15px;
+            font-size: 10px;
+            transition: .7s;
+            font-weight: 500;
+
+        }
+
+        &:valid~p {
+            top: 15px;
+            font-size: 10px;
+            transition: .7s;
+            font-weight: 500;
+        }
+    }
+    select {
+        width: 90%;
+        height: 30px;
+        margin: 10px 10px;
+        border: transparent;
+        background-color: transparent;
+        font-family: $font1;
+        font-size: 15px;
+        font-weight: 400;
+        color: $color_grey1;
+
+        &:focus {
+            outline: none !important;
+        }
+    }
+    p {
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        pointer-events: none;
+
+        font-family: $font1;
+        font-size: 15px;
+        font-weight: 300;
+        color: $color_grey1;
+
+        margin: -9px 0 0 0;
+        transition: .7s;
+
+    }
+
+
+}
+
+//Mixin input file
+@mixin form_input_file {
+    width: 100%;
+    margin: 20px 0;
+    @include flex(space-around);
+    align-items: center;
+
+    .button-part {
+        border: 1px solid $color_blue;
+        background-color: $color_blue;
+        border-radius: 7px;
+        padding: 10px 20px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        position: relative;
+        transition: .7s;
+
+        @include flex(center);
+        align-items: center;
+
+        p {
+            margin: 0;
+            font-family: $font1;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            color: $color_white;
+        }
+
+        input {
+            position: absolute;
+            background-color: transparent;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+
+        &:hover {
+            background-color: transparent;
+            transition: .7s;
+
+            p {
+                color: $color_blue;
+            }
+        }
+    }
+
+    .img-part {
+        height: 80px;
+        width: 80px;
+        border: 1px solid $color_grey1;
+        border-radius: 10px;
+
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+//Style boutton pagination
+@mixin pagination{
+    @include flex(center);
+    align-content: center;
+
+    div {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color_grey1;
+        border-radius: 2px;
+        margin: 0 5px;
+
+        @include flex(center);
+        align-content: center;
+
+        font-family: $font1;
+        color: $color_grey1;
+        font-size: 10px;
+        font-weight: 400;
+    }
+    .active{
+        background-color: $color_grey1;
+        color:$color_white
+    }
+}
+
+//Déclaration des attributs de bases
 body {
-  background-color: red;
+    margin: 0;
+    background-color: $color_fond ;
+    position: relative;
+    height: max-content;
+    transition: .7s;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: $color_grey1;
+}
+
+.un-active {
+    opacity: .4 !important;
+}
+li{
+    font-family: $font1;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 10px ;
+    color: $color_grey1;
+}
+.mentions-cnam {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: $font1;
+    font-size: 8px;
+    font-weight: 200;
+    margin: 0;
+    color: $color_grey1;
+    opacity: .3;
+
+    span {
+        font-weight: 500;
+    }
 }
