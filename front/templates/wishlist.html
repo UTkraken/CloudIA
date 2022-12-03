@@ -1,0 +1,173 @@
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    <link rel="stylesheet" href="../static/data/css/style.css">#}
+    <link href="{% sass_src 'data/css/style.scss' %}" rel="stylesheet" type="text/css" />
+    <title>home</title>
+</head>
+
+<body>
+
+
+    <div id="menu">
+        <div class="menu-container">
+            <div class="menu-logotype" onClick="openDrawer()">
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+            <div class="link-container">
+                <!--Logotype menu-->
+                <div class="logotype-container">
+                    <div></div>
+                    <h1>Cloud<span>IA</span></h1>
+                    <p>Find your way !</p>
+                </div>
+                <!--link menu-->
+                <div class="link-container-column">
+
+                    <div class="column-link">
+                        <a href=" ../home">
+                            <div class="row-link">
+                                <div style="background-image:url(../static/data/picture/icon/home.png)"></div>
+                                <p>Accueil</p>
+                            </div>
+                        </a>
+
+                        <a href="">
+                            <div class="row-link">
+                                <div style="background-image:url(../static/data/picture/icon/search.png)"></div>
+                                <p>Je recherche un métier de la mer</p>
+                            </div>
+                        </a>
+
+                        <a href="">
+                            <div class="row-link">
+                                <div style="background-image:url(../static/data/picture/icon/hearth.png)"></div>
+                                <p>Ma wishlist</p>
+                            </div>
+                        </a>
+                        <a href="../home/login">
+                            <div class="row-link">
+                                <div style="background-image:url(../static/data/picture/icon/user.png)"></div>
+                                <p>Connexion</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div id="wishlist-icon" onclick="location.href='../home/wishlist';">
+        <div style="background-image: url(../static/data/picture/icon/hearth_w.png)"></div>
+    </div>
+
+
+    <section id="list-wishlist">
+        <div class="title-part-section">
+            <h1>Ta Wishlist</h1>
+            <h1>Ta Wishlist</h1>
+        </div>
+
+        <p>Sur mesure pour <span>Béatrice</span></p>
+        <div class="container-list">
+            {% for wish in wishlist %}
+            <div class="cards-wishlist">
+                <div class="background-image-section" style="background-image:url(../static/data/picture/job.png)">
+                    <div class="develop-card">
+                        <input type="checkbox" />
+                        <div class="icon-cross" style="background-image:url(../static/data/picture/icon/search.png)">
+                            <div class="description-job">
+                                <div class="cross" style="background-image:url(../static/data/picture/icon/plus.png)"></div>
+                                <h2>{{ wish.metier }}</h2>
+                                <h3>Agriculture</h3>
+                                <h4>Code ROME : GEHJEBS</h4>
+                                <p>Salaire junior : <span>{{ wish.salaire }}€ /mois</span></p>
+                                <p class="description">
+                                    {{ wish.short }}
+
+                                </p>
+                                <button>Accéder aux formations</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-infos-card">
+                        <div class="actions-card">
+                            <div class="title-star-container">
+                                <h2>{{ wish.metier }}</h2>
+                               
+                            </div>
+                            <p>{{ wish.desc }}</p>
+                        </div>
+                        <div class="like-container">
+                            <div style="background-image: url(../static/data/picture/icon/hearth_F.png)"></div>
+                        </div>
+                    </div>
+
+                    <div class="gradient_black"></div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        
+    </section>
+    <section id="footer">
+        <div class="title-part">
+            <div class="text">
+                <h1>Cloud<span>IA</span></h1>
+                <div></div>
+            </div>
+            <div class="icon">
+
+            </div>
+        </div>
+        <ul class="menu-list">
+            <a href="../home">
+                <li>Accueil</li>
+            </a>
+            <a href="">
+                <li>Je recherche un métier de la mer</li>
+            </a>
+            <a href="">
+                <li>Ma wishlist</li>
+            </a>
+            <a href="../home/login">
+                <li>Connexion</li>
+            </a>
+        </ul>
+
+        <ul class="legal-list">
+            <li>Politiques de confidentialités</li>
+            <li>Mentions légales</li>
+        </ul>
+
+        <p>Tous droits réservés Cloud<span>IA ©2022</span></p>
+    </section>
+
+
+</body>
+
+</html>
+<script>
+    function openDrawer() {
+        if(document.getElementById('menu').classList.contains('active-menu')){
+          document.getElementById('menu').classList.remove('active-menu')
+        }
+        else{
+          document.getElementById('menu').classList.add('active-menu');
+        }
+      }
+</script>

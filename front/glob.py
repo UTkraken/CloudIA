@@ -7,5 +7,6 @@ def process_string(str : str):
     str = str.replace("Ã", "à")
     str = str.replace("Ã§", "ç")
     str = str.replace("Ã¯", "ï")
+    str = str.replace("à§", "ç")
 
     return str

@@ -1,13 +1,220 @@
-{% load static %}
+{% load sass_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    <link rel="stylesheet" href="../static/data/css/style.css">#}
+    <link href="{% sass_src 'data/css/style.scss' %}" rel="stylesheet" type="text/css" />
+    <title>home</title>
 </head>
+
 <body>
-    {{ nb_jobs }}
-    {{ med_jobs }}
-    {{ paca_jobs_count }}
+    
+
+    <div id="menu">
+        <div class="menu-container">
+          <div class="menu-logotype" onClick="openDrawer()">
+            <div></div>
+            <div></div>
+            <div></div>
+    
+          </div>
+          <div class="link-container">
+            <!--Logotype menu-->
+            <div class="logotype-container">
+              <div></div>
+              <h1>Cloud<span>IA</span></h1>
+              <p>Find your way !</p>
+            </div>
+            <!--link menu-->
+            <div class="link-container-column">
+    
+              <div class="column-link">
+                <a href="">
+                  <div class="row-link">
+                    <div style="background-image:url(../static/data/picture/icon/home.png)"></div>
+                    <p>Accueil</p>
+                  </div>
+                </a>
+    
+                <a href="">
+                  <div class="row-link">
+                      <div style="background-image:url(../static/data/picture/icon/search.png)"></div>
+                      <p>Je recherche un métier de la mer</p>
+                  </div>
+                </a>
+    
+                <a href="./wishlist">
+                  <div class="row-link">
+                    <div style="background-image:url(../static/data/picture/icon/hearth.png)"></div>
+                    <p>Ma wishlist</p>
+                  </div>
+                </a>
+                <a href="./login">
+                    <div class="row-link">
+                      <div style="background-image:url(../static/data/picture/icon/user.png)"></div>
+                      <p>Connexion</p>
+                    </div>
+                  </a>
+              </div>
+                
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+
+    <section id="start-section">
+        <div class="container-start-section">
+            <div class="logo-container">
+                <span>
+                    <div class="circle-10"></div>
+                    <div class="circle-20"></div>
+                    <div class="circle-full">
+
+                    </div>
+                </span>
+            </div>
+            <div class="text-container">
+                <div class="logo-text-container">
+
+                </div>
+                <div class="white-background-text">
+                    <p>
+                        Bienvenue sur CloudIA, la première IA de conseil d'orientation des métiers de la mer et du
+                        maritime. Vous recherchez une formation, souhaitez opter pour une reconversion professionnelle
+                        ou simplement découvrir un secteur d'avenir, lancez la recherche !
+                    </p>
+
+                    <div class="mouse-switch">
+                        <span></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="card-start-home">
+        <div class="card-container">
+            <div class="card-left">
+                <div class="card-icons">
+
+                </div>
+            </div>
+            <div class="card-right">
+                <h2>Cloud<span>IA</span></h2>
+                <h1>Cherchons un métier dédié à la mer !</h1>
+                <p>Répondez à quelques question et recevez de precieuses recommandations de notre IA. </p>
+                <button>
+                    Commençons ensemble !
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="data-section">
+        <h1>Quelques données</h1>
+        <div class="container-part">
+            <div class="data-part">
+                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
+                <h2>1000 <span>super data</span></h2>
+            </div>
+            <div class="data-part">
+                <div  style="background-image: url(../static/data/picture/icon/plus.png)"></div>
+                <h2>1000 <span>super data</span></h2>
+            </div>
+            <div class="data-part">
+                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
+                <h2>1000 <span>super data</span></h2>
+            </div>
+            <div class="data-part">
+                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
+                <h2>1000 <span>super data</span></h2>
+            </div>
+            <div class="data-part">
+                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
+                <h2>1000 <span>super data</span></h2>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="financement-section">
+        <h1>Ils nous financent</h1>
+        <div class="container-part">
+            <div style="background-image: url(../static/data/picture/partner/logo-region.png)"></div>
+            <div style="background-image: url(../static/data/picture/partner/MEAE.png)"></div>
+        </div>
+    </section>
+
+    <section id="partners-section">
+        <h1>Ils nous soutiennent</h1>
+        <div class="container-part">
+            <div class="icons-part">
+                <div style="background-image: url(../static/data/picture/partner/MEN.png)"></div>
+                <div style="background-image: url(../static/data/picture/partner/MES.png)"></div>
+                <div style="background-image: url(../static/data/picture/partner/MLT.png)"></div>
+                <div style="background-image: url(../static/data/picture/partner/OIP.png)"></div>
+                <div style="background-image: url(../static/data/picture/partner/ONISEP.png)"></div>
+                <div style="background-image: url(../static/data/picture/partner/PE.png)"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="footer">
+        <div class="title-part">
+            <div class="text">
+                <h1>Cloud<span>IA</span></h1>
+                <div></div>
+            </div>
+            <div class="icon">
+
+            </div>
+        </div>
+        <ul class="menu-list">
+            <a href=""> 
+                <li>Accueil</li>
+            </a>
+            <a href="">
+                <li>Je recherche un métier de la mer</li>
+            </a>
+            <a href="./wishlist">
+                <li>Ma wishlist</li>
+            </a>
+            <a href="./login">
+                <li>Connexion</li>
+            </a>
+        </ul>
+
+        <ul class="legal-list">
+            <li>Politiques de confidentialités</li>
+            <li>Mentions légales</li>
+        </ul>
+
+        <p>Tous droits réservés Cloud<span>IA ©2022</span></p>
+    </section>
+
 </body>
+
 </html>
+
+
+<script>
+    function openDrawer() {
+        if(document.getElementById('menu').classList.contains('active-menu')){
+          document.getElementById('menu').classList.remove('active-menu')
+        }
+        else{
+          document.getElementById('menu').classList.add('active-menu');
+        }
+      }
+</script>

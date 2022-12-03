@@ -16,12 +16,12 @@ def home(request):
 
 def login(request):
     context = {}
-    return render(request, 'template', context)
+    return render(request, 'login.html', context)
 
 
 def register(request):
     context = {}
-    return render(request, 'template', context)
+    return render(request, 'register.html', context)
 
 
 def wishlist(request):
@@ -34,8 +34,11 @@ def wishlist(request):
         for key in list(job.keys()):
             if type(job[key]) == str:
                 job[key] = process_string(job[key])
-    context["wishlist"] = ls_job
-    return render(request, 'template', context)
+    context["wishlist"] = ls_job[0:3]
+    for wish in context["wishlist"]:
+        wish["desc"] = wish["short"][0:100] + "..."
+        wish["secteurs"] = ", ".join(wish["secteurs"])[0:-2]
+    return render(request, 'wishlist.html', context)
 
 
 def match(request):
@@ -43,7 +46,7 @@ def match(request):
     # retour algo
     # liste des métiers + infos
     # listes des formations correspondantes
-    return render(request, 'template', context)
+    return render(request, 'result.html', context)
 
 def onboarding_main(request):
     context = {}

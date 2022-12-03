@@ -1,6 +1,9 @@
 from collections import Counter
 import os
 
+from cloudIA import settings
+
+
 def selector(interrest, caractere, working_place, filiere):
     if caractere == 'sportif':
         caractere = ['aventure', 'logistique', 'decouverte']

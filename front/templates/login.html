@@ -1,3 +1,4 @@
+{% load sass_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+{#    <link rel="stylesheet" href="../static/data/css/style.css">#}
+    <link href="{% sass_src 'data/css/style.scss' %}" rel="stylesheet" type="text/css" />
     <title>home</title>
 </head>
 
@@ -34,9 +36,9 @@
                     <input type="text" required />
                     <p>Mot de passe</p>
                 </div>
-                <button>Connexion</button>
+                <button onclick="location.href='../home';">Connexion</button>
             </form>
-            <a href="">
+            <a href="../home/register">
                 <h2>Créer un compte</h2>
             </a>
         </div>
