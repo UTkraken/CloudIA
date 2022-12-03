@@ -1,7 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
-from views import *
+from front import views
 
 urlpatterns = [
-    path('', home.views, name='home'),
+    path('', views.home, name='home'),
+    # Onboarding
+    # Wishlist
+    # Coup de coeur
+    # login
+    # register
+    # Homepage
 ]
