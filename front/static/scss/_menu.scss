@@ -1,0 +1,195 @@
+#menu {
+    z-index: 150;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+
+    .menu-container {
+        position: relative;
+
+        .menu-logotype {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+
+            div {
+                transition: .7s;
+
+                background: $gradient;
+                width: 30px;
+                height: 3px;
+                border-radius: 3px;
+                margin: 5px 0;
+            }
+        }
+
+        .link-container {
+            width: 290px;
+            height: 100vh;
+            background-color: $color_white;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            box-shadow: 0px 0px 5px $color_grey2;
+
+            position: absolute;
+            top: 0px;
+            left: -290px;
+
+            transition: .7s;
+
+            @include flex(flex-start);
+            flex-direction: column;
+            align-content: center;
+
+            .logotype-container {
+                margin: 100px 0 0 0;
+                width: 190px;
+
+                @include flex(flex-start);
+                flex-direction: column;
+                align-content: center;
+
+                div {
+                    width: 50px;
+                    height: 60px;
+                    margin: 0px 70px;
+
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+
+                h1 {
+                    font-family: $font1;
+                    background: $gradient;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    font-size: 50px;
+                    font-weight: 700;
+                    text-align: left;
+
+                    transform: rotate(3deg);
+                    margin: 0;
+                }
+
+                p {
+                    font-family: $font1;
+                    font-size: 12px;
+                    font-weight: 200;
+                    text-align: right;
+                    transform: rotate(-3deg);
+                    margin: 0;
+                    color: $color_grey1;
+
+                }
+
+                span {
+                    background: $gradient;
+                    width: 50px;
+                    height: 5px;
+                    border-radius: 5px;
+                    margin: 0;
+                }
+            }
+
+            .link-container-column {
+                @include flex(flex-start);
+                flex-direction: column;
+                margin: 20px 0 0 0;
+
+                .stroke-menu {
+                    height: .5px;
+                    opacity: .5;
+                    width: 50px;
+                    background-color: $color_grey1;
+                    border-radius: 2px;
+                    margin: 10px 0
+                }
+
+                .column-link {
+                    .row-link {
+                        @include row_link();
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+#account-bubble {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $color_beige;
+
+    background-image: url(src/assets/img/user.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+
+    z-index: 100;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    .alert-bubble {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: $no_valid_color;
+
+        font-family: $font1;
+        color: $color_white;
+
+        font-size: 10px;
+        font-weight: 500;
+        text-align: center;
+
+        @include flex(center);
+        align-content: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+
+.active-menu {
+    .menu-container {
+        .menu-logotype {
+            top: 40px !important;
+            left: 20px !important;
+
+            div {
+                transition: .7s;
+
+                background: $color_grey1  !important;
+                margin: -2.5px 0 0 0 !important;
+
+                &:first-child {
+                    transform: rotate(45deg);
+
+                }
+
+                &:nth-child(even) {
+                    opacity: 0;
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+
+                }
+            }
+        }
+
+        .link-container {
+            left: 0 !important;
+            transition: .7s;
+        }
+    }
+}

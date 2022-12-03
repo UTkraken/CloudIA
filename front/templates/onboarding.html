@@ -13,6 +13,58 @@
 
 </head>
 <body>
+<div id="menu">
+        <div class="menu-container">
+          <div class="menu-logotype" onClick="openDrawer()">
+            <div></div>
+            <div></div>
+            <div></div>
+
+          </div>
+          <div class="link-container">
+            <!--Logotype menu-->
+            <div class="logotype-container">
+              <div></div>
+              <h1>Cloud<span>IA</span></h1>
+              <p>Find your way !</p>
+            </div>
+            <!--link menu-->
+            <div class="link-container-column">
+
+              <div class="column-link">
+                <a href="">
+                  <div class="row-link">
+                    <div style="background-image:url(picture/icon/home.png)"></div>
+                    <p>Accueil</p>
+                  </div>
+                </a>
+
+                <a href="home/match">
+                  <div class="row-link">
+                      <div style="background-image:url(picture/icon/search.png)"></div>
+                      <p>Je recherche un métier de la mer</p>
+                  </div>
+                </a>
+
+                <a href="wishlist">
+                  <div class="row-link">
+                    <div style="background-image:url(picture/icon/hearth.png)"></div>
+                    <p>Ma wishlist</p>
+                  </div>
+                </a>
+                <a href="home/login">
+                    <div class="row-link">
+                      <div style="background-image:url(picture/icon/user.png)"></div>
+                      <p>Connexion</p>
+                    </div>
+                  </a>
+              </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
 <section id="wrap" class="wrapRegister">
 
     <!-- TODO Use API route to register -->
@@ -363,7 +415,6 @@
         <span class="step"></span>
       </div>
       <div id="onboardingPrevious">
-{#        <img src="arrow_next.png" alt="Prochaine étape">#}
           <img src="{% static 'img/arrow_next.png' %}" alt="Retour arrière">
       </div>
       <div id="onboardingNext">
@@ -383,6 +434,9 @@ nextPrev(0, true)
 function initClickEvents() {
     document.getElementById('onboardingNext').addEventListener("click", function () {
         nextPrev(1, true)
+    })
+    document.getElementById('onboardingPrevious').addEventListener("click", function () {
+        nextPrev(-1, true)
     })
 }
 
@@ -464,6 +518,14 @@ function fixStepIndicator(n) {
 function toggleLocations() {
       var value = document.getElementById('currentLocation').checked
 }
+    function openDrawer() {
+        if(document.getElementById('menu').classList.contains('active-menu')){
+          document.getElementById('menu').classList.remove('active-menu')
+        }
+        else{
+          document.getElementById('menu').classList.add('active-menu');
+        }
+      }
 </script>
 </body>
 </html>
