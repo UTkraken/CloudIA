@@ -1,12 +1,14 @@
 {% load sass_tags %}
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CloudIA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <link href="{% sass_src 'style.scss' %}" rel="stylesheet" type="text/css" />
 
 </head>
@@ -73,18 +75,20 @@
         <div id="inner"></div>
       </div>
 
-      <form action="api/onboarding" id="onboardingForm" method="POST">
 
+      <form action="api/onboarding" id="onboardingForm" method="POST">
         <!-- One "tab" for each step in the form: -->
         <!-- Question 1 -->
         <div class="tab">
           <div id="onboardingTitle">
+
             <h1>Bienvenue! Je suis CloudIA</h1>
           </div>
           <div id="onboardingText">
             <p>
              Je suis là pour te guider et te recommander les métiers du secteur maritime qui te plairont le plus.
             Comment tu t'appelles ?
+
             </p>
           </div>
           <div class="form_input">
@@ -96,11 +100,13 @@
         <!-- Question 2 -->
         <div class="tab">
           <div id="onboardingTitle">
+
             <h1>Heureux de te connaitre !</h1>
           </div>
           <div id="onboardingText">
             <p>
               Je peux baser mes recommendations de formation sur ta position actuelle, ou tu as une préférence ?
+
             </p>
           </div>
           <div class="button-container-form">
@@ -127,11 +133,13 @@
         <!-- Question 3 -->
         <div class="tab">
           <div id="onboardingTitle">
+
             <h1>Dis en moi plus sur ta situation actuelle</h1>
           </div>
           <div id="onboardingText">
             <p>
               Pour t'aider dans ta recherche, il faut que j'en sache plus sur ta situation actuelle.
+
             </p>
           </div>
           <div class="button-container-form">
@@ -169,11 +177,13 @@
         <!-- Question 4 -->
         <div class="tab">
           <div id="onboardingTitle">
+
             <h1>Parle moi de ce que tu recherches !</h1>
           </div>
           <div id="onboardingText">
             <p>
               Explique moi ce que tu cherches à vivre a travers ton futur métier pour que l'on trouve celui qui est fait pour toi.
+
             </p>
           </div>
           <div class="button-container-form">
@@ -292,6 +302,7 @@
           </div>
         </div>
 
+
         <!-- Question 6 -->
         <div class="tab">
           <div id="onboardingTitle">
@@ -300,6 +311,7 @@
           <div id="onboardingText">
             <p>
               Pour améliorer toujours plus mes recommandations, il faut que tu me dises quelle situation te convient le plus.
+
             </p>
           </div>
           <div class="button-container-form">
@@ -331,6 +343,7 @@
           </div>
         </div>
 
+
         <!-- Question 7 -->
         <div class="tab">
           <div id="onboardingTitle">
@@ -339,6 +352,7 @@
           <div id="onboardingText">
             <p>
               J'en sais presque assez sur toi maintenant, précise moi juste quel domaine du monde de la mer te fait le plus envie.
+
             </p>
           </div>
           <div class="button-container-form">
