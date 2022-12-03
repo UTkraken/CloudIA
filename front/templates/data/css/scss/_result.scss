@@ -1,0 +1,340 @@
+#list-result {
+    @include section(100px);
+    min-height: 100vh;
+    padding-bottom: 300px;
+
+    .title-part-section{
+        position: relative;
+        h1 {
+            margin: auto;
+            font-family: $font1;
+            font-size: 30px;
+            font-weight: 800;
+            color: $color_grey1;
+            width: 200px;
+            text-align: center;
+
+            &:last-child{
+                position: absolute;
+                top:5px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                opacity: .2;
+
+            }
+        }
+    }
+    
+
+    .container-list {
+        width: 90%;
+        margin: 40px 5%;
+
+        @include flex(center);
+        align-items: center;
+
+        .cards-result {
+            width: 350px;
+            height: 350px;
+            border-radius: 10px;
+            margin:10px 0;
+            box-shadow: 0 0 10px #DDDDDD;
+            overflow: hidden;
+            position: relative;
+
+            .background-image-section {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+            }
+
+            .develop-card {
+                z-index: 7;
+                
+                input{
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index:15;
+                    opacity: 0;
+                    &:checked ~ .icon-cross{
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0;
+                        transition: .7s;
+                        background-size: 0%;
+                        .description-job{
+                            animation: 3s pop-up ;
+                            display: block;
+                            opacity: 1;
+                        }
+                    }
+
+                  
+                }
+                .icon-cross{
+                    transition: .7s;
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    background-color: $color_white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px #acacac;
+                    background-position: center;
+                    background-size: 40%;
+                    background-repeat: no-repeat;
+                    z-index: 7;
+
+                    .description-job{
+                        display: none;
+                        opacity: 0;
+                        position: relative;
+                        padding: 30px;
+                        box-sizing: border-box;
+                        overflow-y: scroll ;
+                        .cross{
+                            width: 50px;
+                            height: 50px;
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                            background-position: center;
+                            background-size: 50%;
+                            background-repeat: no-repeat;
+                            transform: rotate(45deg);
+                        }
+                        h2{
+                            margin: auto;
+                            font-family: $font1;
+                            font-size: 30px;
+                            font-weight: 700;
+                            color: $color_grey1;
+                            margin: 0;
+                        }
+                        h3{
+                            margin: auto;
+                            font-family: $font1;
+                            font-size: 14px;
+                            font-weight: 500;
+                            opacity: .5;
+                            color: $color_grey1;
+                            margin: 5px 0;
+                        }
+                        h4{
+                            margin: auto;
+                            font-family: $font1;
+                            font-size: 12px;
+                            font-weight: 400;
+                            opacity: .5;
+                            color: $color_grey1;
+                            margin: 5px 0;
+                        }
+                        p{
+                            margin: auto;
+                            font-family: $font1;
+                            font-size: 12px;
+                            font-weight: 400;
+                            opacity: 1;
+                            color: $color_grey1;
+                            margin: 10px 0;
+                            span{
+                                font-weight: 700;
+                                font-size: 14px;
+                            }
+
+                            
+                        }
+                        .description{
+                            font-size: 12px !important;
+                            font-weight: 500 !important;
+                            margin: 15px 0 !important;
+                        }
+                        button{
+                            @include blue_button
+                        }
+                    }
+                }
+
+                
+
+                @keyframes pop-up {
+                    0%{
+                        opacity: 0;
+                    }
+                    4%{
+                        opacity: 0;
+                    }
+                    100%{
+                        opacity: 1;
+                    }
+                }
+
+            }
+
+            .container-infos-card {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 4;
+
+                @include flex(flex-start);
+                align-items: center;
+                flex-wrap: nowrap;
+
+                .actions-card {
+
+                    padding: 10px 20px;
+                    box-sizing: border-box;
+                    width: 70%;
+
+                    .title-star-container {
+                        @include flex(flex-start);
+                        align-items: center;
+
+                        h2 {
+                            width: max-content;
+                            font-family: $font1;
+                            font-size: 30px;
+                            font-weight: 800;
+                            color: $color_white;
+                            margin: 0;
+
+                        }
+
+                        .star-container {
+                            @include flex(flex-start);
+                            align-items: center;
+                            margin-left: 15px;
+
+                            h3 {
+                                width: max-content;
+                                font-family: $font1;
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: $color_white;
+                                margin: 0;
+
+                                span {
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                }
+                            }
+
+                            div {
+                                width: 15px;
+                                height: 15px;
+                                margin: 5px;
+                                background-position: center;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                    }
+
+                    p {
+                        font-family: $font1;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: $color_white;
+                    }
+                }
+
+                .like-container {
+                    @include flex(flex-end);
+                    align-items: center;
+                    flex-wrap: nowrap;
+
+                    div {
+                        margin: 5px;
+                        background-position: center;
+                        background-size: 50%;
+                        background-repeat: no-repeat;
+
+                        &:last-child {
+                            width: 45px;
+                            height: 45px;
+                            border-radius: 50%;
+                            background-color: $color_grey1;
+                        }
+
+                        &:first-child {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            transform: rotate(45deg);
+                            background-color: transparent;
+                            border: 1px solid $color_white;
+
+                        }
+
+                    }
+                }
+            }
+
+
+            .gradient_black {
+                width: 100%;
+                height: 200px;
+                z-index: 3;
+                background: linear-gradient(to top, rgb(48, 48, 48), rgba(48, 48, 48, 0));
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+    }
+
+    .end-page{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: $color_dark_blue;
+        box-shadow: 0 0 5px #ACACAC;
+        h1 {
+            margin: auto;
+            font-family: $font1;
+            font-size: 25px;
+            font-weight: 800;
+            color: $color_white;
+            text-align: center;
+            width: 100%;
+
+        }
+        div{
+            margin: 50px 0 20px 0;
+            @include flex(center);
+            align-items: center;
+            button{
+                padding: 10px 20px;
+                border: 1px solid $color_white;
+                font-family: $font1;
+                font-size: 13px;
+                border-radius: 5px;
+                margin: 0 10px;
+                &:first-child{
+                    background-color: transparent;
+                    font-weight: 800;
+                    color: $color_white;
+
+                }
+            }
+        }
+    }
+
+}
+
