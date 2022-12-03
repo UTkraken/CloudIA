@@ -37,7 +37,7 @@ def match(request):
 
 def onboarding_main(request):
     context = {}
-    return render(request, 'template', context)
+    return render(request, 'onboarding.html', context)
 
 def api_onboarding(request):
     context = {}
