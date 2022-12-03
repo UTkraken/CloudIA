@@ -1,24 +1,47 @@
+import json
+import os
+
 from django.shortcuts import render
 
-from front import Process_data_ifre
+from cloudIA import settings
 
 
-# Create your views here.
 def home(request):
-    return_dict = Process_data_ifre.get_total_jobs()
-    context = {
-        
-    }
-    return render(request, "template", context)
+    f = open(os.path.join(settings.BASE_DIR, 'front\static\info.json'))
+    context = dict(json.load(f))
+    return render(request, "home.html", context)
 
-# Wishlist
-# les métier liké
 
-# Coup de coeur
-# retour algo
-# liste des métiers + infos
-# listes des formations correspondantes
+def login(request):
+    context = {}
+    return render(request, 'template', context)
 
-# une route pour afficher ele premier onboarding
 
-# une route pour l'api des info
+def register(request):
+    context = {}
+    return render(request, 'template', context)
+
+
+def wishlist(request):
+    context = {}
+    # les métier liké
+    return render(request, 'template', context)
+
+
+def match(request):
+    context = {}
+    # retour algo
+    # liste des métiers + infos
+    # listes des formations correspondantes
+    return render(request, 'template', context)
+
+def onboarding_main(request):
+    context = {}
+    return render(request, 'template', context)
+
+def api_onboarding(request):
+    context = {}
+    # une route pour l'api des info
+    return render(request, 'template', context)
+
+

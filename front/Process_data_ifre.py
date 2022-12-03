@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 
 
@@ -13,9 +15,13 @@ def get_total_jobs():
     paca_domains = paca_jobs['Domaine'].drop_duplicates()
 
     info = {
-        'nb_jobs': nb_jobs,
-        'mde_jobs': med_jobs,
-        'paca_jobs_count': paca_jobs_count
+        'nb_jobs': int(nb_jobs),
+        'med_jobs': int(med_jobs),
+        'paca_jobs_count': int(paca_jobs_count)
     }
+    print(type(info))
+    dump = json.dumps(info, indent=4, separators=(',', ': '), sort_keys=True)
+    f = open("static/info.json", "w")
+    f.write(dump)
 
-    return info
+get_total_jobs()
