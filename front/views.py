@@ -1,7 +1,9 @@
 import json
 import os
+import random
 
 from django.shortcuts import render
+from .glob import process_string
 
 from cloudIA import settings
 
@@ -23,8 +25,16 @@ def register(request):
 
 
 def wishlist(request):
+    #métiers liké
+    f = open(os.path.join(settings.BASE_DIR, 'front\static\hand.json'))
     context = {}
-    # les métier liké
+    ls_job = json.load(f)
+    random.shuffle(ls_job)
+    for job in ls_job:
+        for key in list(job.keys()):
+            if type(job[key]) == str:
+                job[key] = process_string(job[key])
+    context["wishlist"] = ls_job
     return render(request, 'template', context)
 
 
