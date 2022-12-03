@@ -1,0 +1,362 @@
+{% load sass_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<link href="{% sass_src 'style.scss' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<section id="wrap" class="wrapRegister">
+
+    <!-- TODO Use API route to register -->
+    <div id="regFormClaudia">
+      <div id="claudiaCircle">
+        <div id="outter"></div>
+        <div id="medium"></div>
+        <div id="inner"></div>
+      </div>
+
+      <form action="#">
+        <!-- One "tab" for each step in the form: -->
+        <!-- Question 1 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Pour commencer, quel est ton prénom ?
+            </p>
+          </div>
+          <div class="form_input">
+            <input type="text" name="firstName">
+            <p>Prénom</p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Je base mes recommendations sur ta position actuelle, ou tu as une préférence ?
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected">
+              <input type="checkbox"
+                     name="which-choice"
+                     value="here"
+                     id="currentLocation"
+                     @click="toggleLocations()"
+              />
+              <div>
+                <p>Ma position actuelle</p>
+              </div>
+            </div>
+          </div>
+            <p>Ou alors</p>
+            <div class="form_input">
+              <input type="text" name="firstName" id="customLocation" >
+              <p>Une ville</p>
+            </div>
+
+        </div>
+
+        <!-- Question 3 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Que fais tu en ce moment ?
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected" >
+              <input type="radio" name="schoolLevel" value="college" />
+              <div>
+                <p>Collège</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="radio" name="schoolLevel" value="highSchool" />
+              <div>
+                <p>Lycée</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="radio" name="schoolLevel" value="unemployed" />
+              <div>
+                <p>Recherche d'emploi</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="radio" name="schoolLevel" value="employee" />
+              <div>
+                <p>Salarié</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Ce qui te tente, c'est plutôt :
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected" >
+              <input type="checkbox" name="interests" value="aventure" class="interestCheckbox"/>
+              <div>
+                <p>L'aventure</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="meet" class="interestCheckbox"/>
+              <div>
+                <p>Rencontrer des gens</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="logistique" class="interestCheckbox"/>
+              <div>
+                <p>La logistique</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="animals" class="interestCheckbox"/>
+              <div>
+                <p>Les animaux marins</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="tech" class="interestCheckbox"/>
+              <div>
+                <p>Les technologies</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="construction" class="interestCheckbox"/>
+              <div>
+                <p>La construction</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="farming" class="interestCheckbox"/>
+              <div>
+                <p>L'agriculture</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="decouverte" class="interestCheckbox"/>
+              <div>
+                <p>Les découvertes</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="interests" value="organisateur" class="interestCheckbox"/>
+              <div>
+                <p>Organiser</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Dans la vie, tu préfères:
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected" >
+              <input type="checkbox" name="personality" value="sportof" />
+              <div>
+                <p>Rester en mouvement</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="rencontrer" value="altruiste" />
+              <div>
+                <p>Aider les gens</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="personality" value="cérébral" />
+              <div>
+                <p>Résoudre des problèmes</p>
+              </div>
+            </div>
+
+            <div class="button-selected">
+              <input type="checkbox" name="organisateur" value="organisateur" />
+              <div>
+                <p>Gérer l'organisation</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="personality" value="curieux" />
+              <div>
+                <p>Curieux</p>
+              </div>
+            </div>
+            <div class="button-selected">
+              <input type="checkbox" name="personality" value="amoureuxdelanature" />
+              <div>
+                <p>Amoureux de la nature</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Tu préfèrerais travailler:
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected" >
+              <input type="radio" name="environmentWish" value="boat" />
+              <div>
+                <p>Sur un bateau</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="environmentWish" value="port" />
+              <div>
+                <p>Dans un port</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="environmentWish" value="office" />
+              <div>
+                <p>Dans un bureau</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="environmentWish" value="farm" />
+              <div>
+                <p>Dans une exploitation agricole maritime</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="tab">
+          <div id="onboardingTitle">
+            <h1>Super titre accrocheur</h1>
+          </div>
+          <div id="onboardingText">
+            <p>
+              Dans quelle filière de la mer aimerais-tu travailler ?
+            </p>
+          </div>
+          <div class="button-container-form">
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Transport et logistique</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Autorités portuaires</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Navale</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Marchande</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Maintenance</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Sécurité et sûreté</p>
+              </div>
+            </div>
+            <div class="button-selected" >
+              <input type="radio" name="domainWish" value="choice" />
+              <div>
+                <p>Technologies</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </form>
+    </div>
+
+    <div id="onboardingFooter">
+      <div id="onboardingBreadCrumb">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+      <div id="onboardingPrevious" @mousedown="nextPrev(1, true)" v-if="currentTab !== 4">
+        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">
+      </div>
+      <div id="onboardingNext" >
+        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">
+      </div>
+      <div id="onboardingNext" v-if="currentTab === 4">
+        <!--        <RouterLink to="/">-->
+        <!--          <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">-->
+        <!--        </RouterLink>-->
+        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape" @click="create_account">
+      </div>
+    </div>
+  </section>
+</body>
+</html>
