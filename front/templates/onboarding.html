@@ -1,12 +1,12 @@
 {% load sass_tags %}
-
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>CloudIA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="{% sass_src 'style.scss' %}" rel="stylesheet" type="text/css" />
 
 </head>
@@ -21,16 +21,18 @@
         <div id="inner"></div>
       </div>
 
-      <form action="#">
+      <form action="api/onboarding" id="onboardingForm" method="POST">
+
         <!-- One "tab" for each step in the form: -->
         <!-- Question 1 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Bienvenue! Je suis CloudIA</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Pour commencer, quel est ton prénom ?
+             Je suis là pour te guider et te recommander les métiers du secteur maritime qui te plairont le plus.
+            Comment tu t'appelles ?
             </p>
           </div>
           <div class="form_input">
@@ -42,11 +44,11 @@
         <!-- Question 2 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Heureux de te connaitre !</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Je base mes recommendations sur ta position actuelle, ou tu as une préférence ?
+              Je peux baser mes recommendations de formation sur ta position actuelle, ou tu as une préférence ?
             </p>
           </div>
           <div class="button-container-form">
@@ -73,11 +75,11 @@
         <!-- Question 3 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Dis en moi plus sur ta situation actuelle</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Que fais tu en ce moment ?
+              Pour t'aider dans ta recherche, il faut que j'en sache plus sur ta situation actuelle.
             </p>
           </div>
           <div class="button-container-form">
@@ -115,11 +117,11 @@
         <!-- Question 4 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Parle moi de ce que tu recherches !</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Ce qui te tente, c'est plutôt :
+              Explique moi ce que tu cherches à vivre a travers ton futur métier pour que l'on trouve celui qui est fait pour toi.
             </p>
           </div>
           <div class="button-container-form">
@@ -187,11 +189,11 @@
         <!-- Question 5 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Dis en moi plus sur ta personnalité</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Dans la vie, tu préfères:
+              Un bon job est un job qui te plaît. Choisis le trait de caractère qui te correspond le plus, mes recommandations seront meilleures.
             </p>
           </div>
           <div class="button-container-form">
@@ -238,14 +240,14 @@
           </div>
         </div>
 
-        <!-- Question 5 -->
+        <!-- Question 6 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Dans quel environnement préfèrerais-tu travailler</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Tu préfèrerais travailler:
+              Pour améliorer toujours plus mes recommandations, il faut que tu me dises quelle situation te convient le plus.
             </p>
           </div>
           <div class="button-container-form">
@@ -277,14 +279,14 @@
           </div>
         </div>
 
-        <!-- Question 6 -->
+        <!-- Question 7 -->
         <div class="tab">
           <div id="onboardingTitle">
-            <h1>Super titre accrocheur</h1>
+            <h1>Pour finir, quelle fillière de la mer te plairait ?</h1>
           </div>
           <div id="onboardingText">
             <p>
-              Dans quelle filière de la mer aimerais-tu travailler ?
+              J'en sais presque assez sur toi maintenant, précise moi juste quel domaine du monde de la mer te fait le plus envie.
             </p>
           </div>
           <div class="button-container-form">
@@ -343,20 +345,112 @@
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
       </div>
-      <div id="onboardingPrevious" @mousedown="nextPrev(1, true)" v-if="currentTab !== 4">
-        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">
+      <div id="onboardingPrevious">
+{#        <img src="arrow_next.png" alt="Prochaine étape">#}
+          <img src="{% static 'img/arrow_next.png' %}" alt="Retour arrière">
       </div>
-      <div id="onboardingNext" >
-        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">
+      <div id="onboardingNext">
+          <img src="{% static 'img/arrow_next.png' %}" alt="Prochaine étape">
       </div>
-      <div id="onboardingNext" v-if="currentTab === 4">
-        <!--        <RouterLink to="/">-->
-        <!--          <img src="src/assets/img/arrow_next.png" alt="Prochaine étape">-->
-        <!--        </RouterLink>-->
-        <img src="src/assets/img/arrow_next.png" alt="Prochaine étape" @click="create_account">
-      </div>
+{#      <div id="onboardingNext">#}
+{#        <img src="src/assets/img/arrow_next.png" alt="Terminer le formulaire">#}
+{#      </div>#}
     </div>
   </section>
+<script>
+
+document.addEventListener('DOMContentLoaded', initClickEvents)
+var currentTab = 0;
+nextPrev(0, true)
+
+function initClickEvents() {
+    document.getElementById('onboardingNext').addEventListener("click", function () {
+        nextPrev(1, true)
+    })
+}
+
+function showTab(n) {
+      var x = document.getElementsByClassName("tab");
+      x[n].style.display = "flex";
+      x[n].classList.add("displayTab");
+
+      this.fixStepIndicator(n)
+    }
+function nextPrev(n, validate) {
+      var x = document.getElementsByClassName("tab");
+      // Exit the function if any field in the current tab is invalid:
+      {#if (n === 1 && !this.validateForm() && validate) return false;#}
+      // Hide the current tab:
+      x[this.currentTab].style.display = "none";
+      x[this.currentTab].classList.remove("displayTab");
+      // Increase or decrease the current tab by 1:
+      this.currentTab = this.currentTab + n;
+      // if you have reached the end of the form... :
+      if (this.currentTab >= x.length) {
+        //...the form gets submitted:
+        //TODO Put back form logic
+        document.getElementById("onboardingForm").submit();
+        return false;
+      }
+      // Otherwise, display the correct tab:
+      this.showTab(this.currentTab);
+    }
+
+{#function validateForm() {#}
+{#      // This function deals with validation of the form fields#}
+{#      var x, y, i, valid = true;#}
+{#      x = document.getElementsByClassName("tab");#}
+{#      y = x[this.currentTab].getElementsByTagName("input");#}
+{#      // A loop that checks every input field in the current tab:#}
+{#      for (i = 0; i < y.length; i++) {#}
+{#        if(y[i].name == 'userName') {#}
+{#          var names = document.getElementsByClassName("inputName");#}
+{#          for (var j = 0; j < names.length; j++) {#}
+{#            names[j].innerHTML = y[i].value;#}
+{#          }#}
+{#        }#}
+{##}
+{#        if(y[i].id == 'password') {#}
+{#          var password = document.getElementById("password")#}
+{#          var confirm_password = document.getElementById("confirm_password");#}
+{##}
+{#          if(document.getElementById("passwordMismatch")) {#}
+{#            document.getElementById("passwordMismatch").remove()#}
+{#          }#}
+{#          if(password.value != confirm_password.value) {#}
+{#            this.displayMismatchError();#}
+{#            valid = false;#}
+{#          }#}
+{#        }#}
+{#        // If a field is empty...#}
+{#        if (y[i].value == "") {#}
+{#          y[i].className += " invalid";#}
+{#          valid = false;#}
+{#        }#}
+{#      }#}
+{##}
+{#      if (valid) {#}
+{#        document.getElementsByClassName("step")[this.currentTab].className += " finish";#}
+{#      }#}
+{#      return valid; // return the valid status#}
+{#    }#}
+
+function fixStepIndicator(n) {
+      // This function removes the "active" class of all steps...
+      var i, x = document.getElementsByClassName("step");
+      for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace("active", "");
+      }
+      //... and adds the "active" class to the current step:
+      x[n].className += " active";
+    }
+function toggleLocations() {
+      var value = document.getElementById('currentLocation').checked
+}
+</script>
 </body>
 </html>
+
