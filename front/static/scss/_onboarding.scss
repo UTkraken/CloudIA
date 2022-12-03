@@ -1,0 +1,357 @@
+#wrap {
+    padding: 0 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+
+    .tab {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all .3s ease-in-out;
+
+        #onboardingTitle {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 30px;
+        }
+
+        #onboardingImage {
+            height: auto;
+            width: 60%;
+            max-width: 400px;
+            padding-top: 50px;
+        }
+
+        #onboardingText {
+            font-size: 14px;
+            line-height: 15px;
+        }
+
+        #onboardingImage {
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }
+        h1 {
+            font-family: $font1;
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            color: $color_grey1;
+        }
+        h2 {
+            font-family: $font1;
+            font-size: 15px;
+            font-weight: 800;
+            text-align: center;
+            margin: 0;
+            opacity: .5;
+            color: $color_grey1;
+        }
+
+        p {
+            font-family: $font1;
+            font-size: 12px;
+            font-weight: 400;
+            text-align: center;
+            margin: 10px 0;
+            color: $color_grey1;
+        }
+    }
+
+    #onboardingFooter {
+        width: 100%;
+        height: 120px;
+        position: absolute;
+        bottom: 5%;
+    }
+
+    #onboardingBreadCrumb {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 120px;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        span {
+            width: 9px;
+            height: 9px;
+            background: #1E3D59;
+            border-radius: 20px;
+        }
+
+        #activePage {
+            width: 49px;
+            height: 15px;
+            border: 1px solid #1E3D59;
+            border-radius: 20px;
+            background: transparent;
+        }
+    }
+
+    #onboardingPrevious {
+        background: #1E3D59;
+        height: 41px;
+        width: 41px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 50px;
+        left: 30px;
+        transform: rotate(180deg);
+    }
+    #onboardingNext {
+        background: #1E3D59;
+        height: 41px;
+        width: 41px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 50px;
+        right: 30px;
+    }
+
+    /*Placeholders*/
+    #onboardingInputs {
+        padding-top: 25px;
+        width: 100%;
+    }
+
+    #someInput {
+        width: 100%;
+        height: 45px;
+        background-color: grey;
+    }
+
+    /* Style the form */
+    .form_input {
+
+        @include form_input;
+
+    }
+
+    /* Style the input fields */
+    input {
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa;
+    }
+
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid {
+        background-color: #ffdddd;
+    }
+
+
+
+    /* Make circles that indicate the steps of the form: */
+    .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+
+
+    /* Mark the active step: */
+    .step.active {
+        opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+        background-color: #04AA6D;
+    }
+
+    #onboardingBreadCrumb {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 120px;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        .active {
+            width: 49px;
+            height: 15px;
+            border: 1px solid #1E3D59;
+            border-radius: 20px;
+            background: transparent;
+        }
+
+        span {
+            width: 9px;
+            height: 9px;
+            background: #1E3D59;
+            border-radius: 20px;
+        }
+
+        #activePage {
+            width: 49px;
+            height: 15px;
+            border: 1px solid #1E3D59;
+            border-radius: 20px;
+            background: transparent;
+        }
+    }
+
+    #addPicture {
+        @include blue_button;
+    }
+
+    .displayTab {
+        animation: slide 0.3s ease-in-out;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+}
+.wrapRegister {
+    height: 100vh !important;
+    justify-content: flex-start !important;
+}
+
+#wrap {
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80%;
+}
+#regFormClaudia {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-top: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: Raleway, sans-serif !important;
+    input[type='radio']:checked{
+        p {
+            color: white;
+        }
+    }
+    h1 {
+        font-size: 26px !important;
+        font-weight: 600 !important;
+    }
+    .tab {
+        p {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+            color: rgba(16, 16, 16, 0.5) !important;
+        }
+    }
+    .button-container-form {
+        @include flex(center);
+        align-items: center;
+
+        .button-selected {
+            position: relative;
+            margin: 5px;
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+
+                &:checked~div {
+                    background-color: $color_blue;
+                    border-radius: 5px;
+                    transition: .7s;
+
+                    p {
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: $color_white !important;
+                        transition: .7s;
+                    }
+                }
+            }
+
+            div {
+                padding: 10px 20px;
+                box-sizing: border-box;
+                border: 1px solid $color_blue;
+                background-color: transparent;
+                border-radius: 0px;
+                transition: .7s;
+
+                p {
+
+                    font-family: $font1;
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin: 0;
+                    color: $color_blue;
+                }
+            }
+        }
+    }
+    #claudiaCircle {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        height: 130px;
+        width: 100%;
+        position: relative;
+        div {
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        #inner {
+            width: 136px;
+            height: 136px;
+            background: rgba(67, 81, 192, 0.5);
+        }
+        #medium {
+            width: 162px;
+            height: 162px;
+            background: rgba(67, 81, 192, 0.2);
+        }
+        #outter {
+            width: 188px;
+            height: 188px;
+            background: rgba(67, 81, 192, 0.05);
+        }
+    }
+}
+
