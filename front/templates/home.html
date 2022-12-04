@@ -41,7 +41,7 @@
                   </div>
                 </a>
     
-                <a href="">
+                <a href="./onboarding">
                   <div class="row-link">
                       <div style="background-image:url(../static/data/picture/icon/search.png)"></div>
                       <p>Je recherche un métier de la mer</p>
@@ -112,7 +112,7 @@
                 <h2>Cloud<span>IA</span></h2>
                 <h1>Cherchons un métier dédié à la mer !</h1>
                 <p>Répondez à quelques question et recevez de precieuses recommandations de notre IA. </p>
-                <button>
+                <button onclick="location.href='../home/onboarding';">
                     Commençons ensemble !
                 </button>
             </div>
@@ -124,25 +124,16 @@
         <div class="container-part">
             <div class="data-part">
                 <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
-                <h2>1000 <span>super data</span></h2>
+                <h2>{{ med_jobs }} <span>Emploi de la mer en méditéranée</span></h2>
             </div>
             <div class="data-part">
                 <div  style="background-image: url(../static/data/picture/icon/plus.png)"></div>
-                <h2>1000 <span>super data</span></h2>
+                <h2>{{ nb_jobs }} <span>Emploi liés à la mer</span></h2>
             </div>
             <div class="data-part">
                 <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
-                <h2>1000 <span>super data</span></h2>
+                <h2>{{ paca_jobs_count }} <span>Emploi de la mer en PACA</span></h2>
             </div>
-            <div class="data-part">
-                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
-                <h2>1000 <span>super data</span></h2>
-            </div>
-            <div class="data-part">
-                <div style="background-image: url(../static/data/picture/icon/plus.png)"></div>
-                <h2>1000 <span>super data</span></h2>
-            </div>
-
         </div>
     </section>
 
@@ -184,7 +175,7 @@
             <a href=""> 
                 <li>Accueil</li>
             </a>
-            <a href="">
+            <a href="./onboarding">
                 <li>Je recherche un métier de la mer</li>
             </a>
             <a href="./wishlist">

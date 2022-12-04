@@ -4,6 +4,7 @@ import random
 
 from django.shortcuts import render
 from .glob import process_string
+from.loss import selector
 
 from cloudIA import settings
 
@@ -53,9 +54,39 @@ def onboarding_main(request):
     return render(request, 'onboarding.html', context)
 
 def api_onboarding(request):
-    context = {}
+    print(request.GET)
+    print(request.GET.getlist("interest[]"))
+
+    # Fonction avec les paramètres
+    final = selector(request.GET.getlist("interest[]"), request.GET['caractere'], request.GET['working_place'], request.GET['filiere'])
+    # final = selector('aventure', 'sportif', 'port', 'marchand')
+    # ouverture du json
+    data = open(os.path.join(settings.BASE_DIR, 'front\static\hand.json'))
+    data = json.load(data)
+
+    final_total = 0
+    for it in list(final.keys()):
+        final_total = final_total + final[it]
+
+    for d in data:
+        print(d['keyword'])
+        print(final)
+        score = 0
+        for kw in d['keyword']:
+            score = score + final[kw]
+        print(score)
+        d["score"] = (score / final_total) * 5
+        d["keyword"] = "\",\"".join(d["keyword"])
+        d["secteurs"] = "\",\"".join(d["secteurs"])
+        for key in list(d.keys()):
+            if type(d[key]) == str:
+                d[key] = process_string(d[key])
     # une route pour l'api des info
-    return render(request, 'template', context)
+    context = {}
+    context["jobs"] = data
+    context["jobs"] = sorted(data, key=lambda d: d['score'])
+    context["dump"] = json.dumps(context["jobs"], indent=4, separators=(',', ': '), sort_keys=True)
+    return render(request, 'api.html', context)
 
 
 def thanks(request):
