@@ -89,3 +89,9 @@ def api_onboarding(request):
     return render(request, 'api.html', context)
 
 
+def thanks(request):
+    context = {}
+    # une route pour l'api des info
+    return render(request, 'thanks.html', context)
+
+
