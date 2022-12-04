@@ -1,0 +1,12 @@
+[
+{% for job in jobs %}
+{ "formation" : "{{ job.formation }}",
+    "keyword": ["{{ job.keyword }}"],
+    "metier": "{{ job.metier }}",
+    "salaire": {{ job.salaire }},
+    "score": {{ job.score }},
+    "secteurs": ["{{ job.secteurs }}"],
+    "short": "{{ job.short }}"
+},
+{% endfor %}
+]

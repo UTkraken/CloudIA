@@ -92,7 +92,7 @@
             </p>
           </div>
           <div class="form_input">
-            <input type="text" name="firstName">
+            <input type="text" name="firstName" id="fnameInput">
             <p>Prénom</p>
           </div>
         </div>
@@ -101,7 +101,7 @@
         <div class="tab">
           <div id="onboardingTitle">
 
-            <h1>Heureux de te connaitre !</h1>
+              <h1>Heureux de te connaitre <span class="fname"></span>!</h1>
           </div>
           <div id="onboardingText">
             <p>
@@ -260,40 +260,40 @@
           </div>
           <div class="button-container-form">
             <div class="button-selected" >
-              <input type="checkbox" name="personality" value="sportof" />
+              <input type="radio" name="personality" value="sportif" class="caractere"/>
               <div>
                 <p>Rester en mouvement</p>
               </div>
             </div>
 
             <div class="button-selected">
-              <input type="checkbox" name="rencontrer" value="altruiste" />
+              <input type="radio" name="personality" value="altruiste" class="caractere"/>
               <div>
                 <p>Aider les gens</p>
               </div>
             </div>
 
             <div class="button-selected">
-              <input type="checkbox" name="personality" value="cérébral" />
+              <input type="radio" name="personality" value="cerebral" class="caractere"/>
               <div>
                 <p>Résoudre des problèmes</p>
               </div>
             </div>
 
             <div class="button-selected">
-              <input type="checkbox" name="organisateur" value="organisateur" />
+              <input type="radio" name="personality" value="organisateur" class="caractere"/>
               <div>
                 <p>Gérer l'organisation</p>
               </div>
             </div>
             <div class="button-selected">
-              <input type="checkbox" name="personality" value="curieux" />
+              <input type="radio" name="personality" value="curieux" class="caractere"/>
               <div>
                 <p>Curieux</p>
               </div>
             </div>
             <div class="button-selected">
-              <input type="checkbox" name="personality" value="amoureuxdelanature" />
+              <input type="radio" name="personality" value="amoureuxdelanature" class="caractere"/>
               <div>
                 <p>Amoureux de la nature</p>
               </div>
@@ -316,25 +316,25 @@
           </div>
           <div class="button-container-form">
             <div class="button-selected" >
-              <input type="radio" name="environmentWish" value="boat" />
+              <input type="radio" name="environmentWish" value="bateau" class="wp"/>
               <div>
                 <p>Sur un bateau</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="environmentWish" value="port" />
+              <input type="radio" name="environmentWish" value="port" class="wp"/>
               <div>
                 <p>Dans un port</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="environmentWish" value="office" />
+              <input type="radio" name="environmentWish" value="bureau" class="wp"/>
               <div>
                 <p>Dans un bureau</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="environmentWish" value="farm" />
+              <input type="radio" name="environmentWish" value="exploitation" class="wp"/>
               <div>
                 <p>Dans une exploitation agricole maritime</p>
               </div>
@@ -357,43 +357,43 @@
           </div>
           <div class="button-container-form">
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="logistique" class="filliere"/>
               <div>
                 <p>Transport et logistique</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="portuaire" class="filliere"/>
               <div>
                 <p>Autorités portuaires</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="navale" class="filliere"/>
               <div>
                 <p>Navale</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="marchand" class="filliere"/>
               <div>
                 <p>Marchande</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="maintenance" class="filliere"/>
               <div>
                 <p>Maintenance</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="securite" class="filliere"/>
               <div>
                 <p>Sécurité et sûreté</p>
               </div>
             </div>
             <div class="button-selected" >
-              <input type="radio" name="domainWish" value="choice" />
+              <input type="radio" name="domainWish" value="tech" class="filliere"/>
               <div>
                 <p>Technologies</p>
               </div>
@@ -425,10 +425,15 @@
 {#      </div>#}
     </div>
   </section>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
 <script>
 
 document.addEventListener('DOMContentLoaded', initClickEvents)
 var currentTab = 0;
+var firstname = "";
 nextPrev(0, true)
 
 function initClickEvents() {
@@ -448,6 +453,16 @@ function showTab(n) {
       this.fixStepIndicator(n)
     }
 function nextPrev(n, validate) {
+      if (this.currentTab == 0) {
+          this.firstname = document.getElementById("fnameInput").value;
+          window.localStorage.setItem("fname", this.firstname);
+
+            var spans = document.getElementsByClassName("fname");
+            for (var i=0; i<spans.length;i++) {
+                spans[i].innerText = this.firstname;
+            }
+      }
+
       var x = document.getElementsByClassName("tab");
       // Exit the function if any field in the current tab is invalid:
       {#if (n === 1 && !this.validateForm() && validate) return false;#}
@@ -460,51 +475,36 @@ function nextPrev(n, validate) {
       if (this.currentTab >= x.length) {
         //...the form gets submitted:
         //TODO Put back form logic
-        document.getElementById("onboardingForm").submit();
+        {#document.getElementById("onboardingForm").submit();#}
+          var interest = $(".interestCheckbox:checked").toArray().map(e => e.value);
+          var caractere = $(".caractere:checked").val();
+          var working_place = $(".wp:checked").val();
+          var filiere = $(".filliere:checked").val();
+
+          var params = {
+              'interest': interest,
+              'caractere': caractere,
+              'working_place': working_place,
+              'filiere': filiere
+          }
+
+          console.log(params);
+
+          localStorage.setItem("par",JSON.stringify(params))
+          window.location = "../home/match"
+
+          /*$.ajax({
+              url: "../home/api/onboarding",
+              data: params
+          }).done(function(response) {
+             console.log(JSON.parse(response.slice(0, -5) + "]"))
+          });*/
+
         return false;
       }
       // Otherwise, display the correct tab:
       this.showTab(this.currentTab);
     }
-
-{#function validateForm() {#}
-{#      // This function deals with validation of the form fields#}
-{#      var x, y, i, valid = true;#}
-{#      x = document.getElementsByClassName("tab");#}
-{#      y = x[this.currentTab].getElementsByTagName("input");#}
-{#      // A loop that checks every input field in the current tab:#}
-{#      for (i = 0; i < y.length; i++) {#}
-{#        if(y[i].name == 'userName') {#}
-{#          var names = document.getElementsByClassName("inputName");#}
-{#          for (var j = 0; j < names.length; j++) {#}
-{#            names[j].innerHTML = y[i].value;#}
-{#          }#}
-{#        }#}
-{##}
-{#        if(y[i].id == 'password') {#}
-{#          var password = document.getElementById("password")#}
-{#          var confirm_password = document.getElementById("confirm_password");#}
-{##}
-{#          if(document.getElementById("passwordMismatch")) {#}
-{#            document.getElementById("passwordMismatch").remove()#}
-{#          }#}
-{#          if(password.value != confirm_password.value) {#}
-{#            this.displayMismatchError();#}
-{#            valid = false;#}
-{#          }#}
-{#        }#}
-{#        // If a field is empty...#}
-{#        if (y[i].value == "") {#}
-{#          y[i].className += " invalid";#}
-{#          valid = false;#}
-{#        }#}
-{#      }#}
-{##}
-{#      if (valid) {#}
-{#        document.getElementsByClassName("step")[this.currentTab].className += " finish";#}
-{#      }#}
-{#      return valid; // return the valid status#}
-{#    }#}
 
 function fixStepIndicator(n) {
       // This function removes the "active" class of all steps...

@@ -37,12 +37,16 @@ def selector(interrest, caractere, working_place, filiere):
         filiere = ['logistique', 'aventure', 'tech']
     if filiere == 'maintenance':
         filiere = ['tech', 'logistique', 'construction']
-    if filiere == 'securité':
+    if filiere == 'securite':
         filiere = ['aventure', 'tech', 'decouverte']
     if filiere == 'tech':
         filiere = ['tech', 'decouverte', 'animaux']
 
-    interrest = [interrest]
+    # interrest = [interrest]
+    print(interrest)
+    print(caractere)
+    print(working_place)
+    print(filiere)
     result = interrest + caractere + working_place + filiere
 
     print(result)
@@ -51,13 +55,5 @@ def selector(interrest, caractere, working_place, filiere):
     print(result)
     final = Counter(result)
 
-    print(final)
-    data = open(os.path.join(settings.BASE_DIR, 'front\static\hand.json'))
-    res = list()
-    for d in data:
-        print(d[0].secteurs)
-        if d[0].secteurs:
-            res.append(d)
-
-selector('aventure', 'sportif', 'port', 'marchand')
+    return final
 
