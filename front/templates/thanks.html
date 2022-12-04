@@ -1,0 +1,90 @@
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CloudIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% sass_src 'data/css/style.scss' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-container">
+          <div class="menu-logotype" onClick="openDrawer()">
+            <div></div>
+            <div></div>
+            <div></div>
+
+          </div>
+          <div class="link-container">
+            <!--Logotype menu-->
+            <div class="logotype-container">
+              <div></div>
+              <h1>Cloud<span>IA</span></h1>
+              <p>Find your way !</p>
+            </div>
+            <!--link menu-->
+            <div class="link-container-column">
+
+              <div class="column-link">
+                <a href="./">
+                  <div class="row-link">
+                    <div style="background-image:url(../static/data/picture/icon/home.png)"></div>
+                    <p>Accueil</p>
+                  </div>
+                </a>
+
+                <a href="./">
+                  <div class="row-link">
+                      <div style="background-image:url(../static/data/picture/icon/search.png)"></div>
+                      <p>Je recherche un métier de la mer</p>
+                  </div>
+                </a>
+
+                <a href="./wishlist">
+                  <div class="row-link">
+                    <div style="background-image:url(../static/data/picture/icon/hearth.png)"></div>
+                    <p>Ma wishlist</p>
+                  </div>
+                </a>
+                <a href="./login">
+                    <div class="row-link">
+                      <div style="background-image:url(../static/data/picture/icon/user.png)"></div>
+                      <p>Connexion</p>
+                    </div>
+                  </a>
+              </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+<section id="start-section">
+        <div class="container-start-section">
+            <div class="logo-container">
+                <span>
+                    <div class="circle-10"></div>
+                    <div class="circle-20"></div>
+                    <div class="circle-full">
+
+                    </div>
+                </span>
+            </div>
+            <div class="text-container">
+                <div class="logo-text-container">
+
+                </div>
+                <div class="white-background-text" >
+                    <p style="color: black; font-size: 40px; font-weight: 800">
+                        Merci 🐙<br/>
+                        <span style="color: black; font-size: 25px; font-weight: 600">Avez-vous des questions ?</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

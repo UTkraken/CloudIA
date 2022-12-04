@@ -9,5 +9,6 @@ urlpatterns = [
     path('onboarding', views.onboarding_main, name='onboarding'),
     path('login', views.login, name='login'),
     path('register', views.register, name='register'),
-    path('api/onboarding', views.api_onboarding, name='api-onboarding')
+    path('api/onboarding', views.api_onboarding, name='api-onboarding'),
+    path('thanks', views.thanks, name='api-thanks')
 ]
